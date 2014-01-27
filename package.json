@@ -1,0 +1,25 @@
+{
+  "name": "download-github-repo",
+  "repository": "git://github.com/ianstormtaylor/download-github-repo",
+  "description": "Download and extract a GitHub repository from node.",
+  "keywords": [
+    "download",
+    "github",
+    "repo",
+    "repository",
+    "tar",
+    "extract",
+    "tarball"
+  ],
+  "version": "0.0.1",
+  "license": "MIT",
+  "dependencies": {
+    "rimraf": "~2.2.6",
+    "wget": "0.0.1",
+    "tar": "~0.1.19"
+  },
+  "devDependencies": {
+    "mocha": "~1.17.1",
+    "fs-readdir-recursive": "0.0.1"
+  }
+}
