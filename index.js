@@ -20,7 +20,16 @@ module.exports = download;
  */
 
 function download(repo, dest, fn){
-  var url = 'https://codeload.github.com/' + repo + '/legacy.tar.gz/master';
+
+  // branch is optional; defaults to master
+  var branch = "master"
+  var branchMatch = repo.match(/(.*)#(.*)/)
+  if (branchMatch) {
+    repo = branchMatch[1]
+    branch = branchMatch[2]
+  }
+
+  var url = 'https://codeload.github.com/' + repo + '/legacy.tar.gz/' + branch;
   var file = dest + '.tar.gz';
   var dl = wget.download(url, dest + '.tar.gz');
 
