@@ -9,13 +9,24 @@ describe('download-github-repo', function(){
     rm('test/tmp');
   });
 
-  it('should work', function(done){
-    download('ianstormtaylor/matchuppps', 'test/tmp', function(err){
+  it('downloads the master branch by default', function(done){
+    download('zeke/download-github-repo-fixture', 'test/tmp', function(err){
       if (err) return done(err);
       var actual = read('test/tmp');
-      var expected = read('test/fixture');
+      var expected = read('test/fixtures/master');
       assert.deepEqual(actual, expected);
       done();
     });
   });
+
+  it('download branches too', function(done){
+    download('zeke/download-github-repo-fixture', 'my-branch', 'test/tmp', function(err){
+      if (err) return done(err);
+      var actual = read('test/tmp');
+      var expected = read('test/fixtures/my-branch');
+      assert.deepEqual(actual, expected);
+      done();
+    });
+  });
+
 });
