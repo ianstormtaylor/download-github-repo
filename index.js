@@ -12,7 +12,7 @@ var zlib = require('zlib');
 module.exports = download;
 
 /**
- * Download GitHub `repo` to `dest`.
+ * Download GitHub `repo` to `dest` and callback `fn(err)`.
  *
  * @param {String} repo
  * @param {String} dest
@@ -20,17 +20,7 @@ module.exports = download;
  */
 
 function download(repo, dest, fn){
-
-  // branch is optional; defaults to master
-  var branch = "master"
-  var branchMatch = repo.match(/(.*)#(.*)/)
-  if (branchMatch) {
-    repo = branchMatch[1]
-    branch = branchMatch[2]
-  }
-
-  var url = 'https://codeload.github.com/' + repo + '/legacy.tar.gz/' + branch;
-  var file = dest + '.tar.gz';
+  var url = github(normalize(repo));
   var dl = wget.download(url, dest + '.tar.gz');
 
   dl.on('error', function(err){
@@ -46,4 +36,44 @@ function download(repo, dest, fn){
         rm(file, fn);
       });
   });
+}
+
+/**
+ * Return a GitHub url for a given `repo` object.
+ *
+ * @param {Object} repo
+ * @return {String}
+ */
+
+function github(repo){
+  return 'https://codeload.github.com/'
+    + repo.owner
+    + '/'
+    + repo.name
+    + '/legacy.tar.gz/'
+    + repo.branch;
+}
+
+/**
+ * Normalize a repo string.
+ *
+ * @param {String} string
+ * @return {Object}
+ */
+
+function normalize(string){
+  var owner = string.split('/')[0];
+  var name = string.split('/')[1];
+  var branch = 'master';
+
+  if (~name.indexOf('#')) {
+    branch = name.split('#')[1];
+    name = name.split('#')[0];
+  }
+
+  return {
+    owner: owner,
+    name: name,
+    branch: branch
+  };
 }
