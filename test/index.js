@@ -20,7 +20,7 @@ describe('download-github-repo', function(){
   });
 
   it('download branches too', function(done){
-    download('zeke/download-github-repo-fixture', 'my-branch', 'test/tmp', function(err){
+    download('zeke/download-github-repo-fixture#my-branch', 'test/tmp', function(err){
       if (err) return done(err);
       var actual = read('test/tmp');
       var expected = read('test/fixtures/my-branch');

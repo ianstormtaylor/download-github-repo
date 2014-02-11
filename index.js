@@ -19,13 +19,14 @@ module.exports = download;
  * @param {Function} fn
  */
 
-function download(repo, branch, dest, fn){
+function download(repo, dest, fn){
 
   // branch is optional; defaults to master
-  if (arguments.length === 3) {
-    fn = dest
-    dest = branch
-    branch = 'master'
+  var branch = "master"
+  var branchMatch = repo.match(/(.*)#(.*)/)
+  if (branchMatch) {
+    repo = branchMatch[1]
+    branch = branchMatch[2]
   }
 
   var url = 'https://codeload.github.com/' + repo + '/legacy.tar.gz/' + branch;

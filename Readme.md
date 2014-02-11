@@ -11,11 +11,7 @@
 
 ### download(repo, destination, callback)
 
-  Download a `repo` (eg. `"ianstormtaylor/router"`) to a `destination` folder and `callback`. Defaults to the master branch.
-
-### download(repo, branch, destination, callback)
-
-  Download a `branch` of `repo` (eg. `"ianstormtaylor/router/tree/my-branch"`) to a `destination` folder and `callback`.
+  Download GitHub `repo` (eg. `ianstormtaylor/router`) to a `destination` folder and `callback`. Defaults to the `master` branch, but you can specify a branch as a URL fragment like `ianstormtaylor/router#my-branch`.
 
 ## License
 
