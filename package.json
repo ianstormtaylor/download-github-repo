@@ -14,8 +14,8 @@
   "version": "0.1.0",
   "license": "MIT",
   "dependencies": {
+    "download": "^0.1.11",
     "rimraf": "~2.2.6",
-    "wget": "0.0.1",
     "tar": "~0.1.19"
   },
   "devDependencies": {

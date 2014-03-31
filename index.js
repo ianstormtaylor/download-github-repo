@@ -2,7 +2,7 @@
 var fs = require('fs');
 var rm = require('rimraf');
 var tar = require('tar');
-var wget = require('wget');
+var wget = require('download');
 var zlib = require('zlib');
 
 /**
@@ -21,20 +21,14 @@ module.exports = download;
 
 function download(repo, dest, fn){
   var url = github(normalize(repo));
-  var dl = wget.download(url, dest + '.tar.gz');
+  var dl = wget(url, dest, { extract: true, strip: 1 });
 
   dl.on('error', function(err){
     fn(err);
   });
 
-  dl.on('end', function(file){
-    fs.createReadStream(file)
-      .pipe(zlib.createGunzip())
-      .pipe(tar.Extract({ path: dest, strip: 1 }))
-      .on('error', function(err){ fn(err); })
-      .on('end', function(){
-        rm(file, fn);
-      });
+  dl.on('close', function(){
+    fn();
   });
 }
 
