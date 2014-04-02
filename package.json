@@ -1,5 +1,7 @@
 {
   "name": "download-github-repo",
+  "version": "0.1.2",
+  "license": "MIT",
   "repository": "git://github.com/ianstormtaylor/download-github-repo",
   "description": "Download and extract a GitHub repository from node.",
   "keywords": [
@@ -11,8 +13,6 @@
     "extract",
     "tarball"
   ],
-  "version": "0.1.1",
-  "license": "MIT",
   "dependencies": {
     "download": "^0.1.11"
   },

@@ -1,4 +1,8 @@
 
+0.1.2 - April 2, 2014
+---------------------
+* remove unnecessary deps
+
 0.1.1 - March 31, 2014
 ----------------------
 * switch to `download` dep
