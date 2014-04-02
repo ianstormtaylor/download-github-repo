@@ -14,12 +14,14 @@
   "version": "0.1.1",
   "license": "MIT",
   "dependencies": {
-    "download": "^0.1.11",
-    "rimraf": "~2.2.6",
-    "tar": "~0.1.19"
+    "download": "^0.1.11"
   },
   "devDependencies": {
     "mocha": "~1.17.1",
-    "fs-readdir-recursive": "0.0.1"
+    "fs-readdir-recursive": "0.0.1",
+    "rimraf": "~2.2.6"
+  },
+  "scripts": {
+    "test": "mocha"
   }
 }

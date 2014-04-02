@@ -1,9 +1,4 @@
-
-var fs = require('fs');
-var rm = require('rimraf');
-var tar = require('tar');
 var wget = require('download');
-var zlib = require('zlib');
 
 /**
  * Expose `download`.
