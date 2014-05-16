@@ -35,12 +35,13 @@ function download(repo, dest, fn){
  */
 
 function github(repo){
-  return 'https://codeload.github.com/'
+  return 'https://github.com/'
     + repo.owner
     + '/'
     + repo.name
-    + '/legacy.tar.gz/'
-    + repo.branch;
+    + '/archive/'
+    + repo.branch
+    + '.zip';
 }
 
 /**
