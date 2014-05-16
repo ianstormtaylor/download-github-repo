@@ -1,4 +1,8 @@
 
+0.1.3 - May 16, 2014
+--------------------
+* fix url structure
+
 0.1.2 - April 2, 2014
 ---------------------
 * remove unnecessary deps

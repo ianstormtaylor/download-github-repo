@@ -1,6 +1,6 @@
 {
   "name": "download-github-repo",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "license": "MIT",
   "repository": "git://github.com/ianstormtaylor/download-github-repo",
   "description": "Download and extract a GitHub repository from node.",
