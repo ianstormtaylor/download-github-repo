@@ -16,14 +16,10 @@ module.exports = download;
 
 function download(repo, dest, fn){
   var url = github(normalize(repo));
-  var dl = wget(url, dest, { extract: true, strip: 1 });
-
-  dl.on('error', function(err){
-    fn(err);
-  });
-
-  dl.on('close', function(){
+  wget(url, dest, { extract: true, strip: 1 }).then(function () {
     fn();
+  }).catch(function(err) {
+    fn(err);
   });
 }
 
