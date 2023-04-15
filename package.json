@@ -17,7 +17,7 @@
     "download": "^6.2.5"
   },
   "devDependencies": {
-    "mocha": "~1.17.1",
+    "mocha": "~10.2.0",
     "fs-readdir-recursive": "0.0.1",
     "rimraf": "~2.2.6"
   },
